@@ -109,5 +109,14 @@ class ProductController extends Controller
         return view('components.shop', compact('products'));
     }
 
+    public function productDetails($id)
+    {
+        $product = Product::findOrFail($id);
+
+        // Optional: fetch reviews or ratings if needed
+        $reviews = $product->reviews()->with('user')->get();
+
+        return view('components.product-details', compact('product', 'reviews'));
+    }
 
 }

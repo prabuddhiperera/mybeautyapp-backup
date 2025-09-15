@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
 use App\Models\Review;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
 
 // Welcome Page
 Route::get('/', function () {
@@ -62,9 +64,38 @@ Route::middleware(['auth'])->group(function () {
     // Product details page
     Route::get('/product/{id}', [ProductController::class, 'productDetails'])->name('product.details');
 
+    // Acne category page (blade only)
+    Route::get('/user/shop/categories/acne', function () {
+        return view('components.categories.acne');
+    })->name('user.shop.acne');
+
     // Optional: Add-to-cart or buy now routes can go here
     // Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/shop/categories/acne', function () {
+        $products = Product::where('category', 'acne')->get();
+        return view('components.categories.acne', compact('products'));
+    })->name('user.shop.acne');
+
+    // Product details page
+    Route::get('/product/{id}', [CategoryController::class, 'productDetails'])
+        ->name('product.details');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+    Route::post('/checkout/now/{id}', [CartController::class, 'buyNow'])->name('checkout.now');
+});
+
+Route::get('/categories/acne', [CategoryController::class, 'acne'])->name('categories.acne');
+Route::get('/categories/hyperpigmentation', [CategoryController::class, 'hyperpigmentation'])->name('categories.hyperpigmentation');
+Route::get('/categories/brightening', [CategoryController::class, 'brightening'])->name('categories.brightening');
+Route::get('/categories/cleanser', [CategoryController::class, 'cleanser'])->name('categories.cleanser');
+Route::get('/categories/moisturizer', [CategoryController::class, 'moisturizer'])->name('categories.moisturizer');
+Route::get('/categories/makeup', [CategoryController::class, 'makeup'])->name('categories.makeup');
+
 
 // Static pages
 Route::get('/about', function () {
