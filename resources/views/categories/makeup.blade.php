@@ -1,4 +1,9 @@
 <x-app-layout>
+
+    @section('custom-navbar')
+        @include('layouts.navbar')
+    @endsection
+    
     <div style="background-color: #ffe8e9;" class="min-h-screen flex flex-col">
 
         {{-- Banner --}}

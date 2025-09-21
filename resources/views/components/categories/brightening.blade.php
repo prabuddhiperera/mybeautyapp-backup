@@ -4,17 +4,17 @@
         {{-- Banner --}}
         <div class="w-full">
             <img 
-                src="{{ asset('img/acne-banner.jpeg') }}" 
-                alt="Acne Banner" 
+                src="{{ asset('img/brightening-banner.jpg') }}" 
+                alt="Brightening Banner" 
                 class="w-full h-[498px] object-cover">
         </div>
 
         {{-- Search / Filter --}}
         <section class="max-w-7xl mx-auto px-6 py-6">
-            <form method="GET" action="{{ route('categories.acne') }}" class="flex flex-wrap gap-4 justify-center">
+            <form method="GET" action="{{ route('categories.brightening') }}" class="flex flex-wrap gap-4 justify-center">
 
                 {{-- Search Bar --}}
-                <input type="text" name="search" placeholder="Search acne products..." 
+                <input type="text" name="search" placeholder="Search brightening products..." 
                     value="{{ request('search') }}"
                     class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 w-full sm:w-[500px] lg:w-[600px]">
 
@@ -26,7 +26,7 @@
             </form>
         </section>
 
-        {{-- Product Grid (Acne only) --}}
+        {{-- Product Grid (Brightening only) --}}
         <section class="max-w-7xl mx-auto px-6 py-12 flex-1">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 @forelse($products as $product)
@@ -42,7 +42,7 @@
                         </div>
                     </a>
                 @empty
-                    <p class="text-gray-600 col-span-4 text-center">No acne products found.</p>
+                    <p class="text-gray-600 col-span-4 text-center">No brightening products found.</p>
                 @endforelse
             </div>
         </section>

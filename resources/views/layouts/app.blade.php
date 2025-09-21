@@ -20,16 +20,17 @@
     <body>
         <x-banner />
 
-        <!-- <div class="min-h-screen bg-gray-100"> -->
+        
+        @hasSection('custom-navbar')
+            @yield('custom-navbar')
+        @else
             @livewire('navigation-menu')
+        @endif
 
-            
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+        <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
 
         @stack('modals')
 
