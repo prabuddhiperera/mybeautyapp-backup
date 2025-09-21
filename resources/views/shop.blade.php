@@ -15,32 +15,6 @@
                 class="w-full h-[498px] object-cover">
         </div>
 
-        {{-- Search / Filter --}}
-        <section class="max-w-7xl mx-auto px-6 py-6">
-            <form method="GET" action="{{ route('user.shop') }}" class="flex flex-wrap gap-4 justify-center">
-
-                {{-- Search Bar --}}
-                <input type="text" name="search" placeholder="Search products..." 
-                    value="{{ request('search') }}"
-                    class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 w-full sm:w-[500px] lg:w-[600px]">
-
-                {{-- Category Filter --}}
-                <select name="category" 
-                        class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300">
-                    <option value="">All Categories</option>
-                    <option value="skincare" {{ request('category')=='skincare' ? 'selected' : '' }}>Skincare</option>
-                    <option value="cosmetic" {{ request('category')=='cosmetic' ? 'selected' : '' }}>Cosmetic</option>
-                    <option value="fragrances" {{ request('category')=='fragrances' ? 'selected' : '' }}>Fragrances</option>
-                </select>
-
-                {{-- Filter Button --}}
-                <button type="submit" 
-                        class="px-4 py-2 bg-[#db9289] text-white font-semibold rounded-lg hover:bg-[#c87b7c] transition">
-                    Filter
-                </button>
-            </form>
-        </section>
-
         {{-- Product Grid --}}
         <section class="max-w-7xl mx-auto px-6 py-12 flex-1">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

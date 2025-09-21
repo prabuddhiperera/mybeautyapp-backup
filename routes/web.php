@@ -75,68 +75,14 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/user/shop/categories/acne', function () {
-        $products = Product::whereHas('category', function($q){
-            $q->where('name', 'acne');
-        })->get();
-
+        $products = Product::where('category', 'acne')->get();
         return view('components.categories.acne', compact('products'));
     })->name('user.shop.acne');
 
-    // Hyperpigmentation category
-    Route::get('/user/shop/categories/hyperpigmentation', function () {
-        $products = Product::whereHas('category', function($q){
-            $q->where('name', 'hyperpigmentation');
-        })->get();
-
-        return view('components.categories.hyperpigmentation', compact('products'));
-    })->name('user.shop.hyperpigmentation');
-
-    // Brightening category
-    Route::get('/user/shop/categories/brightening', function () {
-        $products = Product::whereHas('category', function($q){
-            $q->where('name', 'brightening');
-        })->get();
-
-        return view('components.categories.brightening', compact('products'));
-    })->name('user.shop.brightening');
-
-    // Cleanser & Makeup Remover category for dashboard/shop
-    Route::get('/user/shop/categories/cleanser', function () {
-        $products = \App\Models\Product::whereHas('category', function($q){
-            $q->where('name', 'LIKE', '%Cleanser%')
-            ->orWhere('name', 'LIKE', '%Makeup Remover%');
-        })->get();
-
-        return view('components.categories.cleanser', compact('products'));
-    })->name('user.shop.cleanser');
-
-    // Moisturizer category
-    Route::get('/user/shop/categories/moisturizer', function () {
-        $products = Product::whereHas('category', function($q){
-            $q->where('name', 'moisturizer');
-        })->get();
-
-        return view('components.categories.moisturizer', compact('products'));
-    })->name('user.shop.moisturizer');
-
-    // Moisturizer category
-    Route::get('/user/shop/categories/makeup', function () {
-        $products = Product::whereHas('category', function($q){
-            $q->where('name', 'makeup');
-        })->get();
-
-        return view('components.categories.makeup', compact('products'));
-    })->name('user.shop.makeup');
-
     // Product details page
-    Route::get('/product/{id}', [ProductController::class, 'productDetails'])
+    Route::get('/product/{id}', [CategoryController::class, 'productDetails'])
         ->name('product.details');
-
-    // Add-to-cart & Buy-now
-    Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
-    Route::post('/checkout/now/{id}', [CartController::class, 'buyNow'])->name('checkout.now');
 });
-
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');

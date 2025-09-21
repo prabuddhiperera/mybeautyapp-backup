@@ -20,7 +20,7 @@
     <body>
         <x-banner />
 
-        
+        {{-- ✅ Conditional Navbar --}}
         @hasSection('custom-navbar')
             @yield('custom-navbar')
         @else
