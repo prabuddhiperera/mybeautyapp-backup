@@ -69,20 +69,83 @@ Route::middleware(['auth'])->group(function () {
         return view('components.categories.acne');
     })->name('user.shop.acne');
 
-    // Optional: Add-to-cart or buy now routes can go here
-    // Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+    // Hyperpigmentation category page
+    Route::get('/user/shop/categories/hyperpigmentation', function () {
+        // Fetch the category first
+        $category = \App\Models\Category::where('name', 'hyperpigmentation')->firstOrFail();
+
+        // Get all products in this category
+        $products = \App\Models\Product::where('category_id', $category->id)->get();
+
+        // Pass $products to the Blade view
+        return view('components.categories.hyperpigmentation', compact('products', 'category'));
+    })->name('user.shop.hyperpigmentation');
+
+
+    // Brightening category page
+    Route::get('/user/shop/categories/brightening', function () {
+        // Fetch the category first
+        $category = \App\Models\Category::where('name', 'brightening')->firstOrFail();
+
+        // Get all products in this category
+        $products = \App\Models\Product::where('category_id', $category->id)->get();
+
+        // Pass $products to the Blade view
+        return view('components.categories.brightening', compact('products', 'category'));
+    })->name('user.shop.brightening');
+
+    // cleanser category page
+    Route::get('/user/shop/categories/cleanser', function () {
+        // Fetch the category first
+        $category = \App\Models\Category::where('name', 'cleanser')->firstOrFail();
+
+        // Get all products in this category
+        $products = \App\Models\Product::where('category_id', $category->id)->get();
+
+        // Pass $products to the Blade view
+        return view('components.categories.cleanser', compact('products', 'category'));
+    })->name('user.shop.cleanser');
+
+    // Cleanser & Makeup Remover category page
+    Route::get('/user/shop/categories/cleanser', function () {
+        // Fetch the category first
+        $category = \App\Models\Category::where('name', 'Cleanser & Makeup Remover')->firstOrFail();
+
+        // Get all products in this category
+        $products = \App\Models\Product::where('category_id', $category->id)->get();
+
+        // Pass $products to the Blade view
+        return view('components.categories.cleanser', compact('products', 'category'));
+    })->name('user.shop.cleanser');
+
+
+    // moisturizer category page
+    Route::get('/user/shop/categories/moisturizer', function () {
+        // Fetch the category first
+        $category = \App\Models\Category::where('name', 'moisturizer')->firstOrFail();
+
+        // Get all products in this category
+        $products = \App\Models\Product::where('category_id', $category->id)->get();
+
+        // Pass $products to the Blade view
+        return view('components.categories.moisturizer', compact('products', 'category'));
+    })->name('user.shop.moisturizer');
+    
+
+    // moisturizer category page
+    Route::get('/user/shop/categories/makeup', function () {
+        // Fetch the category first
+        $category = \App\Models\Category::where('name', 'makeup')->firstOrFail();
+
+        // Get all products in this category
+        $products = \App\Models\Product::where('category_id', $category->id)->get();
+
+        // Pass $products to the Blade view
+        return view('components.categories.makeup', compact('products', 'category'));
+    })->name('user.shop.makeup');
+
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/user/shop/categories/acne', function () {
-        $products = Product::where('category', 'acne')->get();
-        return view('components.categories.acne', compact('products'));
-    })->name('user.shop.acne');
-
-    // Product details page
-    Route::get('/product/{id}', [CategoryController::class, 'productDetails'])
-        ->name('product.details');
-});
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');

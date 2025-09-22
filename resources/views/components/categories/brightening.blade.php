@@ -30,7 +30,7 @@
         <section class="max-w-7xl mx-auto px-6 py-12 flex-1">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 @forelse($products as $product)
-                    <a href="{{ route('product.details', $product->id) }}" 
+                    <a href="{{ route('product.details', ['id' => $product->id]) }}" 
                        class="bg-white rounded-2xl shadow hover:shadow-lg transition p-4 cursor-pointer block">
                         <img src="{{ asset('uploads/products/'.$product->image) }}" 
                              alt="{{ $product->name }}" 

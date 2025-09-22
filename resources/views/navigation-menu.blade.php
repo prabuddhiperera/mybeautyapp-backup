@@ -35,11 +35,11 @@
                             class="absolute bg-white shadow-lg rounded-md mt-2 py-2 w-56 z-50">
                             
                             <li><a href="{{ route('user.shop.acne') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Acne</a></li>
-                            <li><a href="{{ url('/categories/hyperpigmentation') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Hyperpigmentation</a></li>
-                            <li><a href="{{ url('/categories/brightening') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Brightening</a></li>
-                            <li><a href="{{ url('/categories/cleanser') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Cleanser & Makeup Remover</a></li>
-                            <li><a href="{{ url('/categories/moisturizer') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Moisturizer</a></li>
-                            <li><a href="{{ url('/categories/makeup') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Makeup</a></li>
+                            <li><a href="{{ route('user.shop.hyperpigmentation') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Hyperpigmentation</a></li>
+                            <li><a href="{{ route('user.shop.brightening') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Brightening</a></li>
+                            <li><a href="{{ route('user.shop.cleanser') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Cleanser & Makeup Remover</a></li>
+                            <li><a href="{{ route('user.shop.moisturizer') }}" class="block px-4 py-2 hover:bg-[#ffbdbd]">Moisturizer</a></li>
+                            <li><a href="{{ route('user.shop.makeup') }}"class="block px-4 py-2 hover:bg-[#ffbdbd]">Makeup</a></li>
                         </ul>
 
                     </li>

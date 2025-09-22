@@ -4,7 +4,7 @@
         {{-- Banner --}}
         <div class="w-full">
             <img 
-                src="{{ asset('img/hyperpigmentation-banner.jpeg') }}" 
+                src="{{ asset('img/cleanser-banner.jpg') }}" 
                 alt="Hyperpigmentation Banner" 
                 class="w-full h-[498px] object-cover">
         </div>

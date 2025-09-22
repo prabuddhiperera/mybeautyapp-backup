@@ -20,12 +20,12 @@
     <body>
         <x-banner />
 
-        {{-- ✅ Conditional Navbar --}}
         @hasSection('custom-navbar')
             @yield('custom-navbar')
         @else
             @livewire('navigation-menu')
         @endif
+
 
         <!-- Page Content -->
         <main>

@@ -4,7 +4,7 @@
         {{-- Banner --}}
         <div class="w-full">
             <img 
-                src="{{ asset('img/cleanser-banner.jpeg') }}" 
+                src="{{ asset('img/hyperpigmentation-banner.jpeg') }}" 
                 alt="Cleanser & Makeup Remover Banner" 
                 class="w-full h-[498px] object-cover">
         </div>

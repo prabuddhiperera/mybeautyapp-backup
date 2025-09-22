@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category; // ← Add this
 use App\Models\Product;
+use App\Models\Review;
+
 
 class CategoryController extends Controller
 {
@@ -66,6 +68,17 @@ class CategoryController extends Controller
         Category::findOrFail($id)->delete();
         return response()->json(null, 204);
     }
+
+   public function productDetails($id)
+    {
+        $product = Product::findOrFail($id);
+
+        // Fetch all reviews for this product
+        $reviews = Review::where('product_id', $id)->get();
+
+        return view('components.product-details', compact('product', 'reviews'));
+    }
+
 
     public function acne(Request $request)
     {
